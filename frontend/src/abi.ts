@@ -1,0 +1,23 @@
+const POS = "tuple(uint256 amount,uint64 start,uint64 unlock,uint64 lastClaim,uint8 tier,bool open)";
+export const ABI = [
+  "function owner() view returns (address)",
+  "function paused() view returns (bool)",
+  "function symbol() view returns (string)",
+  "function balanceOf(address) view returns (uint256)",
+  "function totalStaked() view returns (uint256)",
+  "function rewardPool() view returns (uint256)",
+  "function tiers(uint256) view returns (uint64 lock, uint16 multBps)",
+  `function getPositions(address) view returns (${POS}[])`,
+  "function pendingOf(address,uint256) view returns (uint256)",
+  "function vestings(address) view returns (uint256 total,uint256 released,uint64 start,uint64 cliff,uint64 duration,bool revoked)",
+  "function releasable(address) view returns (uint256)",
+  "function stake(uint256,uint8)",
+  "function claim(uint256)",
+  "function unstake(uint256)",
+  "function release()",
+  "function fundRewardPool(uint256)",
+  "function createVesting(address,uint256,uint64,uint64)",
+  "function revokeVesting(address)",
+  "function pause()",
+  "function unpause()",
+];
